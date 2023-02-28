@@ -31,7 +31,6 @@ const Banner = () => {
             style={{
               fontWeight: "bold",
               marginBottom: 15,
-              fontFamily: "Montserrat",
             }}
           >
             Crypto Hunter
@@ -41,7 +40,6 @@ const Banner = () => {
             style={{
               color: "darkgrey",
               textTransform: "capitalize",
-              fontFamily: "Montserrat",
             }}
           >
             Get all the Info regarding your Favorite Crypto Currency
