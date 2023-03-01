@@ -1,6 +1,7 @@
 import { styled } from "@mui/material";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/header/Header";
+// import Page404 from "./components/mira/Page404";
 
 import CoinPage from "./pages/coinPage/CoinPage";
 import Home from "./pages/home/Home";
@@ -18,6 +19,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
+          {/* <Route path="/mira" element={<Page404 />} /> */}
           <Route path="/coins/:id" element={<CoinPage />} />
         </Routes>
       </CustomApp>

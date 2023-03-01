@@ -13,18 +13,26 @@ import {
 import { useNavigate } from "react-router-dom";
 import { CryptoState } from "../../contexts/CryptoContext";
 
-const CustomTypography = styled(Typography)({
-  flex: 1,
-  color: "gold !important",
-  // fontFamily: "Montserrat",
-  fontWeight: "bold !important",
-  cursor: "pointer",
+const theme = createTheme({
+  palette: {
+    black: {
+      main: "dark",
+    },
+  },
 });
 
 const darkTheme = createTheme({
   palette: {
     mode: "dark",
   },
+});
+
+const CustomTypography = styled(Typography)({
+  flex: 1,
+  color: "gold !important",
+  // fontFamily: "Montserrat",
+  fontWeight: "bold !important",
+  cursor: "pointer",
 });
 
 const Header = () => {
@@ -35,7 +43,7 @@ const Header = () => {
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
-      <AppBar color="transparent" position="static">
+      <AppBar style={{ background: "#000000" }} position="sticky">
         <Container>
           <Toolbar>
             <CustomTypography variant="h5" onClick={() => navigate("/")}>
