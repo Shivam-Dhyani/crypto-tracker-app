@@ -33,7 +33,6 @@ const CustomTableCell_1 = styled(TableCell)({
 
 const CustomTableCell_2 = styled(TableCell)({
   display: "flex",
-
   gap: 15,
 });
 
@@ -113,7 +112,7 @@ const CoinsTable = () => {
 
         <TableContainer>
           {loading ? (
-            <LinearProgress style={{ background: "gold" }} />
+            <LinearProgress mt={5} style={{ background: "gold" }} />
           ) : (
             <Table>
               <TableHead
@@ -122,12 +121,14 @@ const CoinsTable = () => {
                 }}
               >
                 <TableRow>
-                  <CustomTableCell_1>Coin</CustomTableCell_1>
-                  <CustomTableCell_1 align="right">Price</CustomTableCell_1>
-                  <CustomTableCell_1 align="right">
+                  <CustomTableCell_1 width="25%">Coin</CustomTableCell_1>
+                  <CustomTableCell_1 align="right" width="25%">
+                    Price
+                  </CustomTableCell_1>
+                  <CustomTableCell_1 align="right" width="25%">
                     24H Change
                   </CustomTableCell_1>
-                  <CustomTableCell_1 align="right">
+                  <CustomTableCell_1 align="right" width="25%">
                     Market Cap
                   </CustomTableCell_1>
                 </TableRow>
@@ -142,17 +143,19 @@ const CoinsTable = () => {
                         key={row.name}
                         onClick={() => navigate(`/coins/${row.id}`)}
                       >
-                        <CustomTableCell_2 component="th" scope="row">
-                          <img
-                            src={row.image}
-                            alt={row.name}
-                            height="50"
-                            //   style={{ marginBottom: 10 }}
-                          />
+                        <CustomTableCell_2>
+                          <img src={row.image} alt={row.name} height="50" />
                           <div
-                            style={{ display: "flex", flexDirection: "column" }}
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                            }}
                           >
-                            <span style={{ textTransform: "uppercase" }}>
+                            <span
+                              style={{
+                                textTransform: "uppercase",
+                              }}
+                            >
                               {row.symbol}
                             </span>
                             <span style={{ color: "darkgrey" }}>
@@ -160,13 +163,8 @@ const CoinsTable = () => {
                             </span>
                           </div>
                         </CustomTableCell_2>
-                        <TableCell
-                          align="right"
-                          // style={{
-                          //   color: profit > 0 ? "green" : "red",
-                          //   fontWeight: 500,
-                          // }}
-                        >
+
+                        <TableCell align="right">
                           {currencySymbol}{" "}
                           {priceWithCommas(row.current_price.toFixed(2))}
                         </TableCell>
@@ -195,7 +193,7 @@ const CoinsTable = () => {
           )}
         </TableContainer>
         <CustomPagination
-          count={(handleSearch().length / 10).toFixed(0)}
+          count={Number((handleSearch().length / 10).toFixed(0))}
           sx={{
             "& .MuiPaginationItem-root": {
               padding: { xs: "0", sm: "20px", md: "30px" },
